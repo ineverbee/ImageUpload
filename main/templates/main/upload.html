@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<a href="{% url 'home' %}">Назад к списку</a>
+<h2>Новое изображение</h2>
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<label>Ссылка<br>{{ form.url }}</label>
+	<br><br>
+	<label>Файл<br>{{ form.img }}</label>
+	<br>
+	{% if error %}
+	<p color='red'>{{ error }}</p>
+	{% endif %}
+	<br>
+	<button type="submit">Отправить</button>
+</form>
+{% endblock %}

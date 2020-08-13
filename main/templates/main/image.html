@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load tempfilters %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'home' %}">Назад к списку</a>
+<h2>{{ image | splitpart | capfirst }}</h2>
+<form method="POST">
+	{% csrf_token %}
+	<label>Ширина<br>{{ form.width }}</label>
+	<br>
+	<label>Высота<br>{{ form.height }}</label>
+	<br>
+	{% if error != False %}
+	{{ error }}
+	{% endif %}
+	<br>
+	<button type="submit">Отправить</button>
+</form>
+<br>
+{% if resized %}
+<img src="data:image/png;base64, {{ resized }}">
+{% else %}
+<img src="{% static image|splitpart %}">
+{% endif %}
+{% endblock %}

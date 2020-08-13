@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load tempfilters %}
+
+{% block content %}
+<h2>Список изображений</h2>
+{% if images %}
+	{% for img in images %}
+	<a href="{% url 'image' img.id %}">{{ img | splitpart }}</a><br>
+	{% endfor %}
+{% else %}
+	Нет доступных изображений<br>
+{% endif %}
+<br>
+<a href="{% url 'upload' %}">Добавить изображение</a>
+{% endblock %}
