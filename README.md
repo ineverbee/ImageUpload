@@ -4,10 +4,10 @@
 
 1. активировать (или создать, если нет) виртуальное окружение:
 > source myenv/bin/activate
-2. установить зависимости 
+2. установить зависимости: 
 > pip install -r requirements.txt
-3. провести миграции 
+3. провести миграции: 
 > python manage.py makemigrations, 
 > python manage.py migrate
-4. запустить локальный сервер 
+4. запустить локальный сервер: 
 > python manage.py runserver
